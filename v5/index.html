@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Tints - Professional Painting Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0f172a;
+            --blue: #1e40af;
+            --gold: #d4a574;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-600: #475569;
+            --gray-700: #334155;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--gold) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blue);
+            padding: 0.75rem 1.75rem;
+            border: 2px solid var(--blue);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 8rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.75rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 600px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-badge-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-badge-text {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--gray-50);
+            padding: 2rem 3rem;
+            border-top: 1px solid rgba(15, 23, 42, 0.08);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .trust-items {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--navy);
+        }
+
+        .trust-text {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--blue) 0%, var(--gold) 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .service-number {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            background: var(--navy);
+            color: white;
+            padding: 6rem 3rem;
+        }
+
+        .why-us-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .why-us-content h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .why-us-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+
+        .why-us-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .why-feature {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .why-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-feature h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .why-feature p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, white 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 3rem;
+            background: var(--gray-50);
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h5 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--blue) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--blue);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-detail-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gray-50);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-content h4 {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-detail-content p {
+            color: var(--gray-600);
+        }
+
+        .contact-detail-content a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-detail-content a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: var(--gray-50);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(15, 23, 42, 0.15);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-about h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-image {
+                height: 400px;
+            }
+            .trust-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-us-container {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .services, .testimonials, .contact {
+                padding: 4rem 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .trust-items {
+                grid-template-columns: 1fr;
+            }
+            .why-us-features, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">TT</div>
+                <span>Timeless Tints</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:+61451166494" class="btn-primary">Call Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Painting Services for <span>Exceptional Spaces</span></h1>
+            <p>Transform your property with our professional painting and decorating services. Quality craftsmanship, attention to detail, and customer satisfaction guaranteed.</p>
+            <div class="hero-buttons">
+                <a href="tel:+61451166494" class="btn-primary">Get Free Quote</a>
+                <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1688372199140-cade7ae820fe?q=80&w=1080" alt="Professional painting service">
+            <div class="hero-badge">
+                <div class="hero-badge-title">10+</div>
+                <div class="hero-badge-text">Years Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="trust-items">
+            <div class="trust-item">
+                <div class="trust-icon">✓</div>
+                <div class="trust-title">Licensed & Insured</div>
+                <div class="trust-text">Fully certified professionals</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">★</div>
+                <div class="trust-title">Quality Guaranteed</div>
+                <div class="trust-text">100% satisfaction promise</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">⚡</div>
+                <div class="trust-title">Fast & Reliable</div>
+                <div class="trust-text">On-time project completion</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">💰</div>
+                <div class="trust-title">Free Quotes</div>
+                <div class="trust-text">No obligation estimates</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-header">
+            <div class="section-label">Our Services</div>
+            <h2 class="section-title">Comprehensive Painting Solutions</h2>
+            <p class="section-description">From residential homes to commercial properties, we deliver exceptional results with premium materials and expert craftsmanship.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>Interior Painting</h3>
+                <p>Professional interior painting services that bring your vision to life with precision and care.</p>
+                <ul class="service-features">
+                    <li>Residential & commercial</li>
+                    <li>Premium quality paints</li>
+                    <li>Color consultation</li>
+                    <li>Minimal disruption</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>Exterior Painting</h3>
+                <p>Protect and enhance your property with durable, weather-resistant exterior finishes.</p>
+                <ul class="service-features">
+                    <li>Weather-resistant coatings</li>
+                    <li>Surface preparation</li>
+                    <li>Timber restoration</li>
+                    <li>Long-lasting results</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>Decorative Finishes</h3>
+                <p>Custom decorative techniques that add character and elegance to any space.</p>
+                <ul class="service-features">
+                    <li>Feature walls</li>
+                    <li>Specialty techniques</li>
+                    <li>Custom textures</li>
+                    <li>Unique designs</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">04</div>
+                <h3>Commercial Painting</h3>
+                <p>Professional painting services for offices, retail spaces, and commercial properties.</p>
+                <ul class="service-features">
+                    <li>Flexible scheduling</li>
+                    <li>Minimal downtime</li>
+                    <li>Large-scale projects</li>
+                    <li>Professional finish</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">05</div>
+                <h3>Surface Preparation</h3>
+                <p>Comprehensive repairs and preparation ensuring flawless, long-lasting results.</p>
+                <ul class="service-features">
+                    <li>Crack repairs</li>
+                    <li>Sanding & filling</li>
+                    <li>Priming services</li>
+                    <li>Surface restoration</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">06</div>
+                <h3>Premium Treatments</h3>
+                <p>High-end specialty coatings and luxury finishes for discerning clients.</p>
+                <ul class="service-features">
+                    <li>Wallpaper installation</li>
+                    <li>Specialty coatings</li>
+                    <li>Luxury finishes</li>
+                    <li>Custom solutions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="why-us">
+        <div class="why-us-container">
+            <div class="why-us-content">
+                <h2>Why Choose Timeless Tints?</h2>
+                <p>With over a decade of experience, we've built our reputation on delivering exceptional painting services with unmatched attention to detail. Every project receives the same commitment to quality and customer satisfaction.</p>
+
+                <div class="why-us-features">
+                    <div class="why-feature">
+                        <div class="why-feature-icon">🎯</div>
+                        <h4>Expert Craftsmanship</h4>
+                        <p>Skilled professionals with years of training and experience</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-icon">💼</div>
+                        <h4>Professional Service</h4>
+                        <p>Clear communication and respect for your property</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-icon">🏆</div>
+                        <h4>Quality Materials</h4>
+                        <p>Premium paints and supplies for lasting results</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-icon">⏰</div>
+                        <h4>Timely Completion</h4>
+                        <p>Projects completed on schedule, every time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">A+</div>
+                    <div class="stat-label">Service Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-description">Don't just take our word for it. Here's what our satisfied clients have to say about our work.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Exceptional work! Daniel and his team transformed our home. Professional, punctual, and the attention to detail was outstanding. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SJ</div>
+                        <div class="testimonial-info">
+                            <h5>Sarah Johnson</h5>
+                            <p>Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We've used Timeless Tints for multiple projects. Their quality is consistent, prices are fair, and they always deliver on time. True professionals!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MW</div>
+                        <div class="testimonial-info">
+                            <h5>Michael Wong</h5>
+                            <p>Commercial Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Outstanding service from start to finish. The team was respectful, clean, and the final result exceeded our expectations. Worth every penny!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">EP</div>
+                        <div class="testimonial-info">
+                            <h5>Emma Peterson</h5>
+                            <p>Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Get a free, no-obligation quote today and discover why we're the trusted choice for painting services.</p>
+            <a href="tel:+61451166494" class="btn-white">Request Free Quote</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <div class="section-label">Contact Us</div>
+            <h2 class="section-title">Let's Discuss Your Project</h2>
+            <p class="section-description">Get in touch today for a free consultation and quote. We're here to help bring your vision to life.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">👤</div>
+                        <div class="contact-detail-content">
+                            <h4>Principal</h4>
+                            <p>Daniel - Owner & Lead Painter</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📞</div>
+                        <div class="contact-detail-content">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+61451166494">+61 451 166 494</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">🌐</div>
+                        <div class="contact-detail-content">
+                            <h4>Website</h4>
+                            <p>Timelesstints.com.au</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">⏰</div>
+                        <div class="contact-detail-content">
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 7AM-6PM<br>Sat: 8AM-4PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem;">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Timeless Tints</h3>
+                <p>Professional painting and decorating services delivering exceptional results for over a decade. Quality craftsmanship, premium materials, and customer satisfaction guaranteed.</p>
+                <p style="opacity: 0.6; font-size: 0.9rem;">Licensed & Insured • ABN: [Your ABN]</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Interior Painting</a></li>
+                    <li><a href="#services">Exterior Painting</a></li>
+                    <li><a href="#services">Commercial</a></li>
+                    <li><a href="#services">Decorative Finishes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="tel:+61451166494">+61 451 166 494</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Timeless Tints Painting and Decorating. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! Daniel will contact you within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
