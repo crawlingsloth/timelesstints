@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Tints - Bold & Vibrant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg,
+                #667eea 0%,
+                #764ba2 25%,
+                #f093fb 50%,
+                #f5576c 75%,
+                #ffd140 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f093fb 0%, #ffd140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f093fb, #ffd140);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f093fb 50%, #ffd140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(240, 147, 251, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-vibrant {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-vibrant.primary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            box-shadow: 0 10px 40px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-vibrant.primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(245, 87, 108, 0.6);
+        }
+
+        .btn-vibrant.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-vibrant.secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(255, 209, 64, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.5);
+            box-shadow: 0 20px 60px rgba(240, 147, 251, 0.3);
+        }
+
+        .service-gradient {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.6));
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f093fb 0%, #ffd140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffd140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-card {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(255, 209, 64, 0.1));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(135deg, #f093fb 0%, #ffd140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            nav { padding: 1rem 1.5rem; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">TIMELESS TINTS</div>
+            <ul class="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>BOLD COLORS.<br>BRILLIANT RESULTS.</h1>
+            <p>Transform Your Space with Professional Painting Excellence</p>
+            <div class="cta-container">
+                <a href="tel:+61451166494" class="btn-vibrant primary">Get Your Free Quote</a>
+                <a href="#services" class="btn-vibrant secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">PREMIUM SERVICES</h2>
+            <p class="section-subtitle">Professional painting solutions for every need</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-gradient">🎨</div>
+                    <h3>Interior Painting</h3>
+                    <p>Expert interior painting that transforms your living and working spaces with precision and style.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-gradient">🏠</div>
+                    <h3>Exterior Painting</h3>
+                    <p>Durable, weather-resistant exterior finishes that protect and enhance your property's value.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-gradient">✨</div>
+                    <h3>Decorative Finishes</h3>
+                    <p>Custom decorative techniques and specialty finishes that add unique character to your space.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-gradient">🏢</div>
+                    <h3>Commercial Projects</h3>
+                    <h3>Professional painting for offices, retail spaces, and commercial properties.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-gradient">🔧</div>
+                    <h3>Surface Preparation</h3>
+                    <p>Complete repairs and preparation ensuring flawless, long-lasting results.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-gradient">💎</div>
+                    <h3>Premium Treatments</h3>
+                    <p>High-end specialty coatings and luxury finishes for discerning clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>LET'S START YOUR PROJECT</h2>
+        <p>Ready to transform your space? Contact Daniel today for a free consultation and quote.</p>
+
+        <div class="contact-card">
+            <div class="contact-grid">
+                <div class="contact-detail">
+                    <div class="contact-label">Owner</div>
+                    <div class="contact-value">Daniel</div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value"><a href="tel:+61451166494">+61 451 166 494</a></div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-label">Website</div>
+                    <div class="contact-value">Timelesstints.com.au</div>
+                </div>
+            </div>
+            <a href="tel:+61451166494" class="btn-vibrant primary">Call Daniel Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Timeless Tints Painting and Decorating — Licensed & Insured</p>
+    </footer>
+</body>
+</html>

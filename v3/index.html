@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Tints - Minimalist Elegance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --accent: #d4af37;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
+        .nav-link {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 300;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 200;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--black);
+        }
+
+        .hero h1 span {
+            font-weight: 300;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            margin: 2rem auto;
+        }
+
+        .cta-minimal {
+            display: inline-block;
+            padding: 1rem 3rem;
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+            border: 1px solid var(--black);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .cta-minimal:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-minimal.filled {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .cta-minimal.filled:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 4rem;
+            background: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-number {
+            font-size: 0.8rem;
+            color: var(--gray);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 200;
+            letter-spacing: -1px;
+            color: var(--black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .service-item {
+            padding: 3rem;
+            border-right: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .service-item:nth-child(3n) {
+            border-right: none;
+        }
+
+        .service-item:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .service-item:hover .service-number,
+        .service-item:hover h3,
+        .service-item:hover p {
+            color: var(--white);
+        }
+
+        .service-number {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Philosophy */
+        .philosophy {
+            padding: 8rem 4rem;
+            background: var(--white);
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-quote {
+            font-size: 2.5rem;
+            font-weight: 200;
+            line-height: 1.6;
+            color: var(--black);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .philosophy-author {
+            font-size: 1rem;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 8rem 4rem;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-detail {
+            border-left: 1px solid var(--accent);
+            padding-left: 2rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--white);
+        }
+
+        .contact-value a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #374151;
+            color: var(--white);
+            padding: 0.75rem 0;
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            font-weight: 300;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        .submit-minimal {
+            align-self: flex-start;
+            padding: 1rem 3rem;
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+
+        .submit-minimal:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--gray);
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-top: 1px solid #1f2937;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .service-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .services, .philosophy, .contact {
+                padding: 4rem 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-item {
+                border-right: none;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Timeless Tints</div>
+            <a href="tel:+61451166494" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Precision in<br><span>Every Stroke</span></h1>
+            <div class="line"></div>
+            <p>Professional painting and decorating services</p>
+            <div>
+                <a href="tel:+61451166494" class="cta-minimal filled">Get in Touch</a>
+                <a href="#services" class="cta-minimal">Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">— 01</div>
+                <h2 class="section-title">Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-number">01 — Interior</div>
+                    <h3>Interior Painting</h3>
+                    <p>Meticulous attention to detail for residential and commercial interior spaces.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">02 — Exterior</div>
+                    <h3>Exterior Painting</h3>
+                    <p>Durable, weather-resistant finishes that protect and enhance your property.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">03 — Decorative</div>
+                    <h3>Decorative Finishes</h3>
+                    <p>Custom techniques and specialty finishes tailored to your aesthetic vision.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">04 — Commercial</div>
+                    <h3>Commercial Projects</h3>
+                    <p>Professional services for offices, retail, and commercial properties.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">05 — Restoration</div>
+                    <h3>Repairs & Preparation</h3>
+                    <p>Complete surface restoration and preparation for lasting results.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">06 — Premium</div>
+                    <h3>Premium Treatments</h3>
+                    <p>Luxury finishes and high-end specialty coatings for discerning clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <div class="line"></div>
+            <blockquote class="philosophy-quote">
+                "Quality is not an act, it is a habit. We bring excellence to every project through timeless craftsmanship."
+            </blockquote>
+            <p class="philosophy-author">— Daniel, Founder</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-content">
+            <div>
+                <h2>Let's Create<br>Something<br>Timeless</h2>
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <div class="contact-label">Name</div>
+                        <div class="contact-value">Daniel</div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:+61451166494">+61 451 166 494</a></div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-label">Web</div>
+                        <div class="contact-value">Timelesstints.com.au</div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-minimal">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Timeless Tints Painting and Decorating — All Rights Reserved</p>
+    </footer>
+</body>
+</html>
