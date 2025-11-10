@@ -524,6 +524,155 @@
             color: var(--gray-600);
         }
 
+        /* Gallery */
+        .gallery {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(212, 165, 116, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay span {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--blue) 0%, #1e3a8a 100%);
@@ -805,6 +954,7 @@
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="tel:+61451166494" class="btn-primary">Call Now</a></li>
@@ -1036,6 +1186,185 @@
         </div>
     </section>
 
+    <section id="gallery" class="gallery">
+        <div class="gallery-container">
+            <div class="section-header">
+                <div class="section-label">Our Work</div>
+                <h2 class="section-title">Project Gallery</h2>
+                <p class="section-description">Browse through our recent projects and see the quality of our workmanship. Click on any image to view it larger.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img src="photos/IMG-20251109-WA0037.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="photos/IMG-20251109-WA0039.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="photos/IMG-20251109-WA0040.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="photos/IMG-20251109-WA0041.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="photos/IMG-20251109-WA0042.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="photos/IMG-20251109-WA0043.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="photos/IMG-20251109-WA0044.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="photos/IMG-20251109-WA0045.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="8">
+                    <img src="photos/IMG-20251109-WA0046.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="9">
+                    <img src="photos/IMG-20251109-WA0047.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="10">
+                    <img src="photos/IMG-20251109-WA0048.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="11">
+                    <img src="photos/IMG-20251109-WA0049.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="12">
+                    <img src="photos/IMG-20251109-WA0050.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="13">
+                    <img src="photos/IMG-20251109-WA0051.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="14">
+                    <img src="photos/IMG-20251109-WA0052.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="15">
+                    <img src="photos/IMG-20251109-WA0053.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="16">
+                    <img src="photos/IMG-20251109-WA0054.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="17">
+                    <img src="photos/IMG-20251109-WA0055.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="18">
+                    <img src="photos/IMG-20251109-WA0056.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="19">
+                    <img src="photos/IMG-20251109-WA0057.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="20">
+                    <img src="photos/IMG-20251109-WA0058.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="21">
+                    <img src="photos/IMG-20251109-WA0059.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="22">
+                    <img src="photos/IMG-20251109-WA0060.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="23">
+                    <img src="photos/IMG-20251109-WA0061.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="24">
+                    <img src="photos/IMG-20251109-WA0062.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="25">
+                    <img src="photos/WhatsApp Image 2025-11-09 at 20.34.07_75c3d1c3.jpg" alt="Painting project">
+                    <div class="gallery-item-overlay">
+                        <span>🔍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Gallery image">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+    </div>
+
     <section class="cta-section">
         <div class="cta-content">
             <h2>Ready to Transform Your Space?</h2>
@@ -1176,6 +1505,74 @@
             alert('Thank you for your inquiry! Daniel will contact you within 24 hours.');
             this.reset();
         });
+
+        // Gallery Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentImageIndex = 0;
+
+        // Get all image sources
+        const imageSources = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+        // Open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                showLightboxImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Previous image
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+            showLightboxImage();
+        });
+
+        // Next image
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+            showLightboxImage();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+                    showLightboxImage();
+                } else if (e.key === 'ArrowRight') {
+                    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+                    showLightboxImage();
+                }
+            }
+        });
+
+        function showLightboxImage() {
+            lightboxImg.src = imageSources[currentImageIndex];
+        }
     </script>
 </body>
 </html>
