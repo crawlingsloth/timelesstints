@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeless Tints - Professional Painting Services</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="photos/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="photos/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="photos/logo.png">
+    <link rel="shortcut icon" href="photos/logo.png">
+
     <style>
         * {
             margin: 0;
@@ -57,22 +64,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--navy);
+            height: 50px;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--blue) 0%, var(--gold) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -932,6 +931,13 @@
             nav {
                 padding: 1rem 1.5rem;
             }
+            .logo {
+                height: 40px;
+            }
+            .logo img {
+                height: 40px;
+                max-width: 150px;
+            }
             .nav-links {
                 display: none;
             }
@@ -969,8 +975,7 @@
     <header id="header">
         <nav>
             <div class="logo">
-                <div class="logo-icon">TT</div>
-                <span>Timeless Tints</span>
+                <img src="photos/logo.png" alt="Timeless Tints - Professional Painting Services">
             </div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
