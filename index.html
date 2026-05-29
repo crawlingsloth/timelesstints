@@ -170,28 +170,52 @@
             flex-wrap: wrap;
         }
 
-        .hero-image {
+        .hero-images {
             position: relative;
             height: 600px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
+        .hero-images img {
+            position: absolute;
             object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-images img:first-child {
+            left: 0;
+            top: 0;
+            width: 55%;
+            height: 90%;
+            z-index: 1;
+        }
+
+        .hero-images img:nth-child(2) {
+            right: 0;
+            bottom: 0;
+            width: 55%;
+            height: 82%;
+            z-index: 2;
+        }
+
+        .hero-images:hover img:first-child {
+            transform: translateY(-4px);
+        }
+
+        .hero-images:hover img:nth-child(2) {
+            transform: translateY(-4px);
         }
 
         .hero-badge {
             position: absolute;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 1.5rem;
+            left: 1.5rem;
             background: white;
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 1.75rem;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 3;
         }
 
         .hero-badge-title {
@@ -904,7 +928,7 @@
             .hero {
                 grid-template-columns: 1fr;
             }
-            .hero-image {
+            .hero-images {
                 height: 400px;
             }
             .trust-items {
@@ -997,8 +1021,9 @@
                 <a href="#services" class="btn-secondary">View Services</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1688372199140-cade7ae820fe?q=80&w=1080" alt="Professional painting service">
+        <div class="hero-images">
+            <img src="photos/IMG_67E96BCCF05D-1.jpeg" alt="Professional painter at work - door painting project">
+            <img src="photos/IMG_67E96BCCF05D-2.jpeg" alt="Quality craftsmanship - interior painting">
             <div class="hero-badge">
                 <div class="hero-badge-title">10+</div>
                 <div class="hero-badge-text">Years Experience</div>
